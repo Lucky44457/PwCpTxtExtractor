@@ -519,7 +519,7 @@ async def process_pwwp(bot: Client, m: Message, user_id: int):
                     input6 = await bot.listen(chat_id=m.chat.id, filters=filters.user(user_id), timeout=120)
                     raw_text6 = input6.text
                     await input6.delete(True)
-                except ListenerTimeout:
+                except asyncio.TimeoutError:
                     await editable.edit("**Timeout! You took too long to respond**")
                     return
                 except Exception as e:
@@ -814,7 +814,7 @@ async def process_cpwp(bot: Client, m: Message, user_id: int):
                 input1 = await bot.listen(chat_id=m.chat.id, filters=filters.user(user_id), timeout=120)
                 org_code = input1.text.lower()
                 await input1.delete(True)
-            except ListenerTimeout:
+            except asyncio.TimeoutError:
                 await editable.edit("**Timeout! You took too long to respond**")
                 return
             except Exception as e:
@@ -866,7 +866,7 @@ async def process_cpwp(bot: Client, m: Message, user_id: int):
                                     input2 = await bot.listen(chat_id=m.chat.id, filters=filters.user(user_id), timeout=120)
                                     raw_text2 = input2.text
                                     await input2.delete(True)
-                                except ListenerTimeout:
+                                except asyncio.TimeoutError:
                                     await editable.edit("**Timeout! You took too long to respond**")
                                     return
                                 except Exception as e:
@@ -962,7 +962,7 @@ async def process_cpwp(bot: Client, m: Message, user_id: int):
                                                     input3 = await bot.listen(chat_id=m.chat.id, filters=filters.user(user_id), timeout=120)
                                                     raw_text3 = input3.text
                                                     await input3.delete(True)
-                                                except ListenerTimeout:
+                                                except asyncio.TimeoutError:
                                                     await editable.edit("**Timeout! You took too long to respond**")
                                                     return
                                                 except Exception as e:
