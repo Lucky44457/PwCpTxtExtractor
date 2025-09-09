@@ -357,7 +357,7 @@ async def pwwp_callback(bot, callback_query):
     await callback_query.answer()
     
             
-    THREADPOOL.submit(asyncio.run, process_pwwp(bot, callback_query.message, user_id))
+    await process_pwwp(bot, callback_query.message, user_id)
 
 async def process_pwwp(bot: Client, m: Message, user_id: int):
 
@@ -784,7 +784,7 @@ async def cpwp_callback(bot, callback_query):
     await callback_query.answer()
     
                 
-    THREADPOOL.submit(asyncio.run, process_cpwp(bot, callback_query.message, user_id))
+    await process_pwwp(bot, callback_query.message, user_id)
     
 async def process_cpwp(bot: Client, m: Message, user_id: int):
     
